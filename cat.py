@@ -1,19 +1,23 @@
+import random
+
 class Cat():
 
-    def __init__(self, name, age, breed):
+    def __init__(self, name=''):
         self.name = name
-        self.age = age
-        self.breed = breed
 
     def eat(self):
         print(f'{self.name} eats the food.')
-        self.purr
-
-    def sleep(self):
-        print(f'{self.name} is sleeping. Maybe try again later.')
-
-    def hiss(self):
-        print(f'{self.name} hisses! Maybe try again later.')
+        self.purr()
 
     def purr(self):
         print(f'{self.name} purrs loudly.')
+    
+    def behavior(self):
+        self.sleep = 0
+        self.hiss = 1
+        self.behavior = random.randrange(0, 2)
+        if self.behavior == 1:
+            print(f'{self.name} is sleeping. Maybe try again later.')
+        else:
+            print(f'{self.name} hisses! Maybe try again later.')
+        
