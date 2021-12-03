@@ -12,7 +12,8 @@ class Cat():
     def purr(self):
         print(f'{self.name} purrs loudly.')
     
-    def behavior(self):
+    def behavior(self, cat_name):
+        self.name = cat_name
         self.sleep = 0
         self.hiss = 1
         self.behavior = random.randrange(0, 2)
@@ -20,4 +21,3 @@ class Cat():
             print(f'{self.name} is sleeping. Maybe try again later.')
         else:
             print(f'{self.name} hisses! Maybe try again later.')
-        

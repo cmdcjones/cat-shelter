@@ -45,4 +45,3 @@ You\'ve given {self.cat_name} a happy home!')
     def view_database(self):
         print("Viewing all cats in the database:")
         print(", ".join(self.cat_database))
-    

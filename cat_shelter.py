@@ -46,7 +46,7 @@ Let's find more cats to take care of.")
                 continue
             current_cat.name = shelter.select_cat()
             shelter.bathe_cat(current_cat.name)
-            current_cat.behavior()
+            current_cat.behavior(current_cat.name)
         if action == '5':
             if not shelter.cat_database:
                 continue
