@@ -13,6 +13,7 @@ def main():
     current_cat = Cat()
 
     while True:
+        # Message displaying the shelter is empty; replayed when the shelter is empty after choosing a menu action
         if not shelter.cat_database:
             print("The Cat Shelter is empty! \
 Let's find more cats to take care of.")
@@ -27,13 +28,19 @@ Let's find more cats to take care of.")
 
 > """)
         if action == '1':
-            cat_name = input("What is the cat's name?  ")
-            shelter.admit_cat(cat_name)
+            # Checks if the shelter is full; MAX_CATS = 10
+            if len(shelter.cat_database) == shelter.MAX_CATS:
+                print('The Cat Shelter is full at this time. \
+More cats must be adopted first!\n')
+                continue
+            cat_name = input("What is the cat's name?\n> ")
+            shelter.admit_cat(cat_name.title())
         if action == '2':
             if not shelter.cat_database:
                 continue
-            owner_name = input("What is your name?  ")
-            adopt_cat_name = input("What lucky cat would you like to adopt?  ")
+            owner_name = input("What is your name?\n> ")
+            adopt_cat_name = input("What lucky cat would you like to adopt?\n\
+" + ", ".join(shelter.cat_database) + "\n> ")
             shelter.adopt_cat(adopt_cat_name, owner_name)
         if action == '3':
             if not shelter.cat_database:

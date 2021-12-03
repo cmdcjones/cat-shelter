@@ -6,18 +6,18 @@ class Cat():
         self.name = name
 
     def eat(self):
-        print(f'{self.name} eats the food.')
+        print(f'{self.name} eats the food.\n')
         self.purr()
 
     def purr(self):
-        print(f'{self.name} purrs loudly.')
+        print(f'{self.name} purrs loudly.\n')
     
     def behavior(self, cat_name):
         self.name = cat_name
-        self.sleep = 0
-        self.hiss = 1
-        self.behavior = random.randrange(0, 2)
-        if self.behavior == 1:
-            print(f'{self.name} is sleeping. Maybe try again later.')
+        self.behavior_ = random.randint(0, 2)
+        if self.behavior_ == 0:
+            print(f'{self.name} is sleeping. Maybe try again later.\n')
+        elif self.behavior_ == 1:
+            print(f'{self.name} hisses! Maybe try again later.\n')
         else:
-            print(f'{self.name} hisses! Maybe try again later.')
+            self.purr()
