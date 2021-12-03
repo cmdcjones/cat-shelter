@@ -12,6 +12,7 @@ class Cat():
     def purr(self):
         print(f'{self.name} purrs loudly.\n')
     
+    # uses random to decide cat response behavior
     def behavior(self, cat_name):
         self.name = cat_name
         self.behavior_ = random.randint(0, 2)

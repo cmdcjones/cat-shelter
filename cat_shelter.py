@@ -2,7 +2,7 @@
 # Concepts used: imports, classes, functions, class attributes, methods, user input, lists, loops, conditionals, standard modules (random)
 # ----------------------------------------------------------------------------------------------------------------------------------------
 # TODO:
-# file handling, exception handling, more features
+# exception handling, more features (file handling) ... soon
 
 from shelter import Shelter
 from cat import Cat
@@ -34,6 +34,9 @@ Let's find more cats to take care of.")
 More cats must be adopted first!\n')
                 continue
             cat_name = input("What is the cat's name?\n> ")
+            # Checks for accidental double enter input; continues loop if true 
+            if cat_name.strip() == '':
+                continue
             shelter.admit_cat(cat_name.title())
         if action == '2':
             if not shelter.cat_database:
@@ -53,6 +56,7 @@ More cats must be adopted first!\n')
                 continue
             current_cat.name = shelter.select_cat()
             shelter.bathe_cat(current_cat.name)
+            # Don't get hissed at!
             current_cat.behavior(current_cat.name)
         if action == '5':
             if not shelter.cat_database:

@@ -4,6 +4,7 @@ class Shelter():
     cat_database = []
 
     def __init__(self):
+        # Greets user and opens the shelter for business!
         print('Welcome to the Cat Shelter!')
 
     def admit_cat(self, cat_name=''):
@@ -18,11 +19,12 @@ class Shelter():
                 print(f'Thank you, {self.owner_name}!! \
 You\'ve given {self.cat_database[cat]} a happy home!\n')
                 return self.cat_database.pop(cat)
+        # if inputted cat is not in the database, return user a message
         return print("That cat does not exist in the database!\n")
 
     def feed_cat(self, cat_name):
         self.cat_name = cat_name
-        print(f'Feeding {self.cat_name} some food.\n')
+        print(f'Feeding {self.cat_name} some food.')
 
     def bathe_cat(self, cat_name):
             self.cat_name = cat_name
@@ -32,10 +34,12 @@ You\'ve given {self.cat_database[cat]} a happy home!\n')
         self.cat_selection = input(f"Select a cat from the database: \n\
 " + ", ".join(self.cat_database) + "\n> ")
         for cat in range(len(self.cat_database)):
+            # uses lower() function to compare strings in identical format
             if self.cat_selection.lower() == self.cat_database[cat].lower():
                 return self.cat_database[cat]
         else:
             print("That cat does not exist in the database!")
+            # calls select_cat() function again
             self.select_cat()
 
     def view_database(self):
