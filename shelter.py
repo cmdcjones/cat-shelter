@@ -31,16 +31,15 @@ You\'ve given {self.cat_database[cat]} a happy home!\n')
             print(f'Attempting to bathe {self.cat_name}... This may not end well.')
 
     def select_cat(self):
-        self.cat_selection = input(f"Select a cat from the database: \n\
+        while True:
+            self.cat_selection = input(f"Select a cat from the database: \n\
 " + ", ".join(self.cat_database) + "\n> ")
-        for cat in range(len(self.cat_database)):
-            # uses lower() function to compare strings in identical format
-            if self.cat_selection.lower() == self.cat_database[cat].lower():
-                return self.cat_database[cat]
-        else:
-            print("That cat does not exist in the database!")
-            # calls select_cat() function again
-            self.select_cat()
+            for cat in range(len(self.cat_database)):
+                # uses lower() function to compare strings in identical format
+                if self.cat_selection.lower() == self.cat_database[cat].lower():
+                    return self.cat_database[cat]
+            else:
+                print("That cat does not exist in the database!")
 
     def view_database(self):
         print("Viewing all cats in the database:")
